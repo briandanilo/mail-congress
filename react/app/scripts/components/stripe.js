@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import container from '../containers/all.js'
 
 // Stripe is the payment processor
-// We get the Stripe library from a script in the index file  
+// We get the Stripe library from a script in the index file
 class StripeComponent extends React.Component {
 
   constructor (props) {
@@ -19,7 +19,7 @@ class StripeComponent extends React.Component {
   }
 
   renderPaymentForm() {
-    return <form method="post" onSubmit={ this.handleSubmit }>
+    return <form method="post" onSubmit={ this.handleSubmit }>Payment Info
       <input size="20" data-stripe="address_line1" placeholder="address_line1"/><br/>
       <input size="20" data-stripe="address_line2" placeholder="address_line2"/><br/>
       <input size="20" data-stripe="address_city" placeholder="address_city"/><br/>

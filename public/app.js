@@ -23461,7 +23461,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 // Stripe is the payment processor
-// We get the Stripe library from a script in the index file  
+// We get the Stripe library from a script in the index file
 var StripeComponent = function (_React$Component) {
   _inherits(StripeComponent, _React$Component);
 
@@ -23488,6 +23488,7 @@ var StripeComponent = function (_React$Component) {
       return _react2.default.createElement(
         'form',
         { method: 'post', onSubmit: this.handleSubmit },
+        'Payment Info',
         _react2.default.createElement('input', { size: '20', 'data-stripe': 'address_line1', placeholder: 'address_line1' }),
         _react2.default.createElement('br', null),
         _react2.default.createElement('input', { size: '20', 'data-stripe': 'address_line2', placeholder: 'address_line2' }),
