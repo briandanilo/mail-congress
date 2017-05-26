@@ -23340,11 +23340,11 @@ var InputZip = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement('input', { type: 'text', value: this.state.zip, onChange: this.handleFormChange }),
+        _react2.default.createElement('input', { type: 'text', placeholder: 'Zip Code', value: this.state.zip, onChange: this.handleFormChange }),
         _react2.default.createElement(
           'button',
           { onClick: this.submitAddress },
-          'Submit'
+          'Submit Zip'
         )
       );
     }

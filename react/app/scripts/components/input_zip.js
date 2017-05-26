@@ -30,8 +30,8 @@ class InputZip extends React.Component {
 
   render () {
     return (<div>
-      <input type='text' value={this.state.zip} onChange={this.handleFormChange}/>
-        <button onClick={this.submitAddress}>Submit</button>
+      <input type='text' placeholder="Zip Code" value={this.state.zip} onChange={this.handleFormChange}/>
+        <button onClick={this.submitAddress}>Submit Zip</button>
       </div>
     );
   }
