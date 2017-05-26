@@ -19,7 +19,7 @@ class StripeComponent extends React.Component {
   }
 
   renderPaymentForm() {
-    return <form method="post" onSubmit={ this.handleSubmit }>Payment Info
+    return <form method="post" onSubmit={ this.handleSubmit }>Payment Info<br/>
       <input size="20" data-stripe="address_line1" placeholder="address_line1"/><br/>
       <input size="20" data-stripe="address_line2" placeholder="address_line2"/><br/>
       <input size="20" data-stripe="address_city" placeholder="address_city"/><br/>

@@ -23489,6 +23489,7 @@ var StripeComponent = function (_React$Component) {
         'form',
         { method: 'post', onSubmit: this.handleSubmit },
         'Payment Info',
+        _react2.default.createElement('br', null),
         _react2.default.createElement('input', { size: '20', 'data-stripe': 'address_line1', placeholder: 'address_line1' }),
         _react2.default.createElement('br', null),
         _react2.default.createElement('input', { size: '20', 'data-stripe': 'address_line2', placeholder: 'address_line2' }),
