@@ -10,12 +10,12 @@ var request = require('request');
 const DB_URI = 'mongodb://open:open@ds019856.mlab.com:19856/bdtest';
 var mongoAddressDB;
 
-
 app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'/public')));
 
+//all requests to app will serve react's index.html
 app.get('/', function(req, res){
   const index = path.join(__dirname, '/public', 'index.html');
   res.sendFile(index);
@@ -23,9 +23,11 @@ app.get('/', function(req, res){
 
 //NEED TO FIX:
 //ONLY RETURNS ONE CLOWN
-//EVEN IF ZIP HAS TWO CLOWNS
+//EVEN IF ZIP HAS TWO GERRYMANDERED CLOWNS
 app.post('/get-address/', function(req, res){
-  console.log("lets get this zip: ",req.body.zip)
+
+  //we use house.gov's zip lookup feature and scrape the results
+  //this gives us that zip's clown
   let url=`http://ziplook.house.gov/htbin/findrep?ZIP=${req.body.zip}&Submit=FIND+YOUR+REP+BY+ZIP`
   const cb = function(e,r,html){
     console.log("hit cb with erhtml ",e,r,html)
@@ -38,7 +40,7 @@ app.post('/get-address/', function(req, res){
         arr.push(c)
       }
     })
-    console.log("all possible clowns ",arr)
+    // search for a match of the above clown in our clown db
     if (arr[0]){
       var x = arr[0].split(" ")
       var fn = x[0]
@@ -52,62 +54,13 @@ app.post('/get-address/', function(req, res){
         })
       })
     } else {
-      res.send("bad zip")
+      res.send("this is not a valid zip code")
     }
   }
   request({url:url}, cb);
 });
 
-
-
-
-
-
-// app.post('/get-address/', function(req, res){
-//   console.log("lets get this zip: ",req.body.zip)
-//   let url=`http://ziplook.house.gov/htbin/findrep?ZIP=${req.body.zip}&Submit=FIND+YOUR+REP+BY+ZIP`
-//   const cb = function(e,r,html){
-//     var arr = []
-//     var $ = cheerio.load(html);
-//     var t = $('#PossibleReps a').each((i,l)=>{
-//       if($(l).text()){
-//         var c = $(l).text()
-//         c = c.substring(0,c.length-1)
-//         arr.push(c)
-//       }
-//     })
-//     arr.forEach((i)=>{
-//       var x = i.split(" ")
-//       var fn = x[0]
-//       var ln = x[x.length-1]
-//       mongoAddressDB.collection("congress_addy").find({'address.candidate.lastName':ln,'address.candidate.firstName':fn})
-//       .toArray(function(e, i){
-//         console.log(" ** ",i[0].address," ** ")
-//         res.send(i[0].address)
-//       })
-//     })
-//   }
-//   request({url:url}, cb);
-// });
-
-//GET YOUR REPS WITH VOTESMART
-// app.post('/get-address/', function(req, res){
-//   const APIKEY='6e4b602f0f7406192282ef8523883b24'
-//   let url = 'http://api.votesmart.org/Officials.getByZip'
-//   let propertiesObject = {
-//     key: APIKEY,
-//     zip5:06897,
-//     o:'JSON'
-//   }
-//   const cb = function(e,r,b){
-//     let data = JSON.parse(r.body)
-//     res.send(data)
-//   }
-//   request({url:url, qs:propertiesObject}, cb);
-// });
-
-
-
+//SCAFFOLDING FOR LOB API
 app.post('/lob-api', function(req, res){
   let b = req.body
   let addresses = [];
@@ -117,14 +70,14 @@ app.post('/lob-api', function(req, res){
     lobapi.retrieveAddress(b)
   else if (b.type == "retrieve_all_addresses")
     addresses = lobapi.retrieveAllAddresses()
-  res.send("hi")
+  res.send("you want to do something with lob api")
 });
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-
+//connect to our clown db which has the address of all clowns
 mongodb.MongoClient.connect(DB_URI, function (err, database) {
   if (err) {
     console.log(err);

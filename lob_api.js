@@ -5,6 +5,11 @@ var mongodb = require("mongodb")
 const DB_URI = 'mongodb://open:open@ds019856.mlab.com:19856/bdtest';
 var mongoAddressDB;
 
+/*
+
+These are just examples of working Lob API calls 
+
+*/
 
 
 exports.retrieveAllAddresses = function() {
@@ -41,45 +46,3 @@ exports.createAddress = function(b) {
     console.log("response: ",res)
   });
 }
-
-
-// Connect to the database before starting the application server.
-
-
-function queryMongo(db){
-
-  console.log("querying mongo db ",db)
-  var collection = mongoAddressDB.collection(db)
-
-  collection.find({ }).toArray(function(err, items) {
-    if (err) console.log("query error ",err)
-    console.log("items ",items)
-    return items
-  })
-};
-
-
-
-
-
-// const TEST_KEY = 'test_6f19cc578aab5f426a6755afb4cd23bcb7f'
-// const URL = 'https://api.lob.com/'
-
-
-
-
-
-
-
-
-
-// let url = URL+'v1/addresses'
-// let data = {
-//   headers: {
-//   },
-// }
-// let cb = function(e,r,b){
-//   console.log("e,r,b",e,r,b)
-// }
-//
-// request(url,data,cb)
