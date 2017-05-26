@@ -5,6 +5,7 @@ import lobApi from '../actions/lob_api.js'
 import TestButton from './test_button'
 import OfficeButton from './office_button'
 
+//Returns all addresses for a clown once zip has been inputted 
 class ActiveClown extends React.Component {
 
   constructor (props) {
@@ -22,11 +23,8 @@ class ActiveClown extends React.Component {
         return (<OfficeButton addressType={i.type} street={i.street} city={i.city} state={i.state} zip={i.zip} />)
       })
     } else {
-      console.log("we have a cart")
       return (<div>Sending letter to {this.props.addressCart.length} addresses</div>)
     }
-
-    //return <OfficeButton addressType={this.props.activeAddress.type} street={this.props.activeAddress.street} city={this.props.activeAddress.city} state={this.props.activeAddress.state} zip={this.props.activeAddress.zip} />
   }
 
   getParens() {
@@ -37,13 +35,11 @@ class ActiveClown extends React.Component {
   }
 
   renderClown() {
-
     return (<div className="clown-info">
         <div className="clown-bio">{this.props.activeClown.firstName} {this.props.activeClown.lastName} {this.getParens()}<br/></div>
         <div>{this.renderAddresses()}</div>
         <button type="submit" onClick={this.submitCart}>Write Letter</button>
       </div>)
-
   }
 
   render () {

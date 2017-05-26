@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import container from '../containers/all.js'
 import lobApi from '../actions/lob_api.js'
 
+//Where the user writes their letter 
 class Letter extends React.Component {
 
   constructor (props) {
@@ -18,7 +19,6 @@ class Letter extends React.Component {
     this.setState({
       letterBody: e.target.value
     })
-    console.log("this.state ",this.state)
   }
 
   submitLetterBody(){

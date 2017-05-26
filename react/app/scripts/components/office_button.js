@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import container from '../containers/all.js'
 import lobApi from '../actions/lob_api.js'
 
+// displays clown address and a checkbox
+// for user to add clown to shopping cart
 class OfficeButton extends React.Component {
 
   constructor (props) {

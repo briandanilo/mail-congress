@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import container from '../containers/all.js'
 
+// Stripe is the payment processor
+// We get the Stripe library from a script in the index file  
 class StripeComponent extends React.Component {
 
   constructor (props) {

@@ -1,10 +1,10 @@
-import fakeC from '../fake_congressman.js'
-import fakeA from '../fake_address.js'
+import fakeC from '../models/fake_congressman.js'
+import fakeA from '../models/fake_address.js'
 
 export default function getClownAddress (zip) {
 
   return function (dispatch) {
-
+    //make a call to our server requesting clown address
     dispatch( { type: "STARTING_LOAD_ADDRESS_CALL" });
     console.log("getting this zip code: ",zip)
     return  $.ajax({

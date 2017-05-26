@@ -1,6 +1,7 @@
-import fakeC from '../fake_congressman.js'
-import getClownAddress from './get_clown_address.js'
-import fakeA from '../fake_address.js'
+//i just use this for dev when i don't have interent
+
+import fakeC from '../models/fake_congressman.js'
+import fakeA from '../models/fake_address.js'
 
 export default function getClown (d) {
 

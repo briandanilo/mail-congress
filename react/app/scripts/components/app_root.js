@@ -8,6 +8,12 @@ import Letter from './letter'
 import Checkout from './checkout'
 import StripeComponent from './stripe'
 
+
+// For dev purposes, instead of url routing
+// I just return all components
+// but each component only returns anything
+// if certain conditions are present
+
 class AppRoot extends React.Component {
   render() {
     return (<div>

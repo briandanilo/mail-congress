@@ -5,6 +5,7 @@ import lobApi from '../actions/lob_api.js'
 import TestButton from './test_button'
 import OfficeButton from './office_button'
 
+//Summary of user's "purchase"
 class Checkout extends React.Component {
 
   constructor (props) {

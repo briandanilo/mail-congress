@@ -4,6 +4,8 @@ import container from '../containers/all.js'
 import lobApi from '../actions/lob_api.js'
 import TestButton from './test_button'
 
+
+//For allowing a user to input a custom address
 class AddressForm extends React.Component {
 
   constructor (props) {
