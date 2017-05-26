@@ -23534,7 +23534,7 @@ var StripeComponent = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (this.readyToCheckout) return this.renderPaymentForm();else return null;
+      if (this.props.readyToCheckout) return this.renderPaymentForm();else return null;
     }
   }]);
 

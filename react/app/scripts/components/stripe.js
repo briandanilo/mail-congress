@@ -32,7 +32,7 @@ class StripeComponent extends React.Component {
   }
 
   render() {
-    if (this.readyToCheckout)
+    if (this.props.readyToCheckout)
       return this.renderPaymentForm()
     else
       return null
