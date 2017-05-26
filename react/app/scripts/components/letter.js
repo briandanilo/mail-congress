@@ -27,7 +27,7 @@ class Letter extends React.Component {
 
   renderLetterBody(){
     return (<div>
-        <input  onChange={this.changeLetterBody} type="text" className="letter-body-text"></input>
+        <input placeholder="Dear Clown, " onChange={this.changeLetterBody} type="text" className="letter-body-text"></input>
         <button onClick={this.submitLetterBody}>Submit</button>
     </div>);
   }

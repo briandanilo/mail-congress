@@ -23425,7 +23425,7 @@ var Letter = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement('input', { onChange: this.changeLetterBody, type: 'text', className: 'letter-body-text' }),
+        _react2.default.createElement('input', { placeholder: 'Dear Clown, ', onChange: this.changeLetterBody, type: 'text', className: 'letter-body-text' }),
         _react2.default.createElement(
           'button',
           { onClick: this.submitLetterBody },
